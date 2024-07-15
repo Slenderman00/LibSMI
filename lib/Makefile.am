@@ -45,6 +45,8 @@ libsmi_la_SOURCES	= common.c error.c util.c snprintf.c \
 		  	  parser-yang.c scanner-yang.c
 libsmi_la_LDFLAGS	= -version-info @VERSION_LIBTOOL@
 
+AM_CFLAGS               = -Wno-implicit-function-declaration
+
 parser-smi.c parser-smi.tab.h: parser-smi.y scanner-smi.h parser-smi.h error.h
 	$(BISON) --defines=parser-smi.tab.h -t -psmi -o parser-smi.c parser-smi.y
 
